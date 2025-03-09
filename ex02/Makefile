@@ -1,12 +1,16 @@
-NAME = ex00
+NAME = ex02
 
 SRC = main.cpp \
 	  Bureaucrat.cpp \
+	  AForm.cpp \
+	  ShrubberyCreationForm.cpp \
+	  PresidentialPardonForm.cpp \
+	  RobotomyRequestForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
 CC = c++
-FLAGS =  -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+FLAGS =  -Wall -Wextra -Werror -std=c++98 -I include/ -g -fsanitize=address
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@

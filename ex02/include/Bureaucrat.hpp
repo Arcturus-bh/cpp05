@@ -6,11 +6,12 @@
 /*   By: aldalmas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:46:45 by aldalmas          #+#    #+#             */
-/*   Updated: 2025/03/07 09:02:04 by aldalmas         ###   ########.fr       */
+/*   Updated: 2025/03/09 19:07:05 by aldalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # define RED    "\x1b[31m"
 # define GREEN   "\x1b[32m"
@@ -22,7 +23,10 @@
 # include <iostream>
 # include <cstdlib>
 # include <exception>
+# include "AForm.hpp"
 
+class AForm; 
+ 
 class Bureaucrat {
 	private:
 		int					_grade;
@@ -33,7 +37,7 @@ class Bureaucrat {
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat(void);
 
-		// surcharge
+		// overload
 		Bureaucrat& operator=(const Bureaucrat& other);
 
 		// set & get
@@ -43,6 +47,8 @@ class Bureaucrat {
 		// members
 		void incrementGrade(void);
 		void decrementGrade(void);
+		void signForm(AForm& form) const;
+		void executeForm(AForm const& form);
 
 		// imbriqued class - exceptions 
 		class GradeTooHighException : public std::exception {
@@ -57,3 +63,5 @@ class Bureaucrat {
 };
 
 std::ostream&   operator<<(std::ostream& out, const Bureaucrat& bur);
+
+#endif

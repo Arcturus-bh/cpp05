@@ -18,15 +18,18 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
         throw Bureaucrat::GradeTooLowException();
     else if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
-    else
-        this->_grade = grade;
+    this->_grade = grade;
+    std::cout << GREEN << "Hi " << _name << " (grade " << _grade << ") ! Welcome back to the company" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) {
     *this = other;
+    std::cout << GREEN << "Hi " << _name << " (grade " << _grade << ") ! Welcome back to the company" << std::endl;
 }
 
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat(void) {
+    std::cout << RED << _name << " has returned to his home" << RESET << std::endl;
+}
 
 // OVERLOAD  ----------------------------
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
@@ -59,6 +62,19 @@ void Bureaucrat::decrementGrade(void) {
     std::cout << RED << _name << "'s grade is now " << _grade << " - Too bad " << _name << "... Too bad." << RESET << std::endl;
 }
 
+void Bureaucrat::signForm(AForm& form) const {
+    form.beSigned(*this);
+    if (form.getSigned() == true)
+        std::cout << YELLOW << "✅ "<< _name << " signed " << form.getName() << RESET << std::endl;
+    else
+        std::cout << YELLOW << _name << " couldn't sign " << form.getName() << " because he don't have pen..." << RESET << std::endl;
+}
+
+void Bureaucrat::executeForm(AForm const& form) {
+    std::cout << getName() << " executed " << form.getName() << std::endl;
+    form.execute(*this);
+}
+
 // IMBRIQUED CLASSES ----------------------------
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
 	return "ERROR - Grade is too hight (1 max, 150 min)";
@@ -67,7 +83,6 @@ const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
 	return "ERROR - Grade is too low (1 max, 150 min)";
 }
-
 
 // GLOBAL FUNCTIONS ----------------------------
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bur) {
