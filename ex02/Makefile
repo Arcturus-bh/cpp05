@@ -1,11 +1,11 @@
 NAME = ex02
 
 SRC = main.cpp \
-	  Bureaucrat.cpp \
-	  AForm.cpp \
-	  ShrubberyCreationForm.cpp \
-	  PresidentialPardonForm.cpp \
-	  RobotomyRequestForm.cpp \
+	  src/Bureaucrat.cpp \
+	  src/AForm.cpp \
+	  src/ShrubberyCreationForm.cpp \
+	  src/PresidentialPardonForm.cpp \
+	  src/RobotomyRequestForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -49,6 +49,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
     std::srand(std::time(NULL));
     const int random = std::rand();
     std::cout << YELLOW << "WARNING: The robotomy can be executed but works 50% of the time..." << RESET << std::endl;
+    std::cout << "BZZZ... DRRRR... ZOUIIIP..." << std::endl;
     if (random % 2 == 0)
         std::cout << YELLOW << "✅ "<< this->getTarget() << " has been successfully robotomized !" << std::endl;
     else
