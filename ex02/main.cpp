@@ -6,7 +6,7 @@
 /*   By: aldalmas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:46:39 by aldalmas          #+#    #+#             */
-/*   Updated: 2025/03/09 19:44:27 by aldalmas         ###   ########.fr       */
+/*   Updated: 2025/03/10 10:19:24 by aldalmas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(void) {
 		{
 			Bureaucrat bob("Bob", 45);
 			//ShrubberyCreationForm form("garden");            // sign 145, exec 137
-			RobotomyRequestForm form("Pedro le loco");     // sign 72, exec 45
-			//PresidentialPardonForm form("Bob");            // sign 25, exec 5
-			
+			RobotomyRequestForm form("Pedro le loco");         // sign 72, exec 45
+			//PresidentialPardonForm form("Bob");              // sign 25, exec 5
+
 			std::cout << std::endl;
 			bob.signForm(form);
 			std::cout << "    ╰┈➤Try to execute it:" << std::endl;

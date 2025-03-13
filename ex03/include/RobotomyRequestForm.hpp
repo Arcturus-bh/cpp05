@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldalmas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#pragma once
 
-class PresidentialPardonForm : public AForm {
+#include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
+
+class RobotomyRequestForm : public AForm {
     public:
-        PresidentialPardonForm(const std::string& target);
-        PresidentialPardonForm(const PresidentialPardonForm& other);
-        ~PresidentialPardonForm();
+        RobotomyRequestForm(const std::string& target);
+        RobotomyRequestForm(const RobotomyRequestForm& other);
+        ~RobotomyRequestForm();
 
         // overload
-		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-        
-        // member functions      
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
         void execute(Bureaucrat const& executor) const;
 };

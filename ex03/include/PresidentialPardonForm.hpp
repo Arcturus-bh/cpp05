@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "AForm.hpp"
 
 class PresidentialPardonForm : public AForm {
@@ -20,7 +22,5 @@ class PresidentialPardonForm : public AForm {
 
         // overload
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-        
-        // member functions      
         void execute(Bureaucrat const& executor) const;
 };
